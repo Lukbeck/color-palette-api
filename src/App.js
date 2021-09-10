@@ -20,6 +20,7 @@ function App() {
     }
     else if (bannerType === "generated") {
       setBannerGenerated(true);
+      setBannerSuccess(false);
     }
     else if (bannerType === 'err') {
       setBannerErr(true);
@@ -45,7 +46,7 @@ function App() {
         setBannerType('generated');
         setTimeout(() => {
           setBannerType('banner');
-        }, 1500);
+        }, 2000);
       })
       .catch((err) => {
         console.log(err);
