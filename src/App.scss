@@ -1,139 +1,130 @@
 .app {
-    background-color: var(--bg);
-    display: grid;
-    place-items: center;
-    width: 100vw;
-    height: 100vh;
+  background-color: var(--bg);
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 
 .header {
-    margin-top: auto;
-}
-
-.palette {
-    display: flex;
-    flex-flow: wrap;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 5rem;
-}
-
-.color {
-    &-card {
-        background-color: var(--white);
-        box-shadow: rgba(99, 99, 99, 0.05) 0px 2px 8px 0px;
-        border-radius: 0.75rem;
-        width: 8rem;
-        height: 12rem;
-        margin: 0.5rem;
-        transition: transform 0.1s ease;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-
-    &-code {
-        display: flex;
-        align-items: center;
-        height: 2.5rem;
-        justify-content: center;
-
-        & p {
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-align: center;
-            margin: auto;
-        }
-    }
-
-    &-element {
-        background-color: #eee;
-        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.1) 0px 0px 0px 1px;
-        height: 9rem;
-        border-radius: 0.5rem;
-        margin: 0.5rem;
-        margin-bottom: 0px;
-    }
+  margin-top: auto;
 }
 
 .action {
-    display: grid;
-    place-items: center;
+  display: grid;
+  place-items: center;
 
-    & p {
-        font-weight: 500;
+  & p {
+    font-weight: 500;
+  }
+
+  & button {
+    margin-bottom: 1rem;
+    padding: 0.75rem 3.75rem;
+    border: 0px;
+    background-color: var(--btn);
+    color: var(--white);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    transition: transform 0.1s linear, background-color 0.2s ease-in;
+
+    &:hover {
+      transform: scale(0.95);
+      background-color: var(--btn-hover);
     }
 
-    & button {
-        margin-bottom: 1rem;
-        padding: 0.75rem 3.75rem;
-        border: 0px;
-        background-color: var(--btn);
-        color: var(--white);
-        border-radius: 0.25rem;
-        font-size: 1rem;
-        transition: transform 0.1s linear, background-color 0.2s ease-in;
-
-        &:hover {
-            transform: scale(0.95);
-            background-color: var(--btn-hover);
-        }
-
-        &:active {
-            transform: scale(1);
-        }
+    &:active {
+      transform: scale(1);
     }
+  }
 }
 
 .help {
-    display: inline-flex;
-    background-color: var(--white);
-    padding: 0.2rem 1.5rem;
-    border-radius: 2rem;
+  display: inline-flex;
+  background-color: var(--white);
+  padding: 0.2rem 1.5rem;
+  border-radius: 2rem;
+  margin-bottom: auto;
 
-    & p {
-        font-size: 0.9rem;
-        font-weight: 400;
-        color: var(--text);
-        margin: auto;
-        text-align: center;
-    }
+  & p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: var(--text);
+    margin: auto;
+    text-align: center;
+  }
 }
 
-@media (max-width:500px) {
-    .app {
-        background-color: var(--bg);
-        display: grid;
-        place-items: center;
-        padding: 0px 1rem;
-        width: 100vw;
-        min-height: 100vh;
-        height: auto;
+.success {
+  background-color: #34d399;
+
+  & p {
+    color: var(--white);
+  }
+}
+
+.err {
+  background-color: #ef4444;
+
+  & p {
+    color: var(--white);
+  }
+}
+
+@media (max-width: 700px) {
+  .app {
+    background-color: var(--bg);
+    display: grid;
+    place-items: center;
+    padding: 0px 1rem;
+    width: 100vw;
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .header {
+    margin: 4rem 1rem 3rem 1rem;
+
+    & h2 {
+      text-align: center;
+      padding: 0px;
+    }
+  }
+
+  .action {
+    margin: 3rem auto;
+
+    & p {
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  }
+
+  .palette {
+    padding: 0px 0.5rem;
+  }
+
+  .color {
+    &-card {
+      width: 100%;
+      height: 10rem;
+      margin: 0.5rem;
     }
 
-    .header {
-        & h2 {
-            text-align: center;
-            padding: 0px;
-        }
+    &-element {
+      height: 7rem;
     }
+  }
 
-    .action {
-        & p {
-            text-align: center;
-            font-size: 0.9rem;
-        }
+  .help {
+    margin: 0px auto 4rem auto;
+
+    & p {
+      font-size: 0.9rem;
     }
+  }
 
-    .help {
-        & p {
-            font-size: 0.9rem;
-        }
-    }
-
-    .key {
-        display: none;
-    }
-
+  .key {
+    display: none;
+  }
 }
