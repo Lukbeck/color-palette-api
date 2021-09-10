@@ -8,17 +8,25 @@ function App() {
   const [colors, setcolors] = useState();
   const [bannerType, setBannerType] = useState('banner');
   const [bannerNormal, setBannerNormal] = useState(false)
+  const [bannerGenerated, setBannerGenerated] = useState(false)
   const [bannerSuccess, setBannerSuccess] = useState(false);
   const [bannerErr, setBannerErr] = useState(false);
 
   useEffect(() => {
     if (bannerType === 'succ') {
       setBannerSuccess(true);
+      setBannerGenerated(false);
       setBannerNormal(false);
-    } else if (bannerType === 'err') {
+    }
+    else if (bannerType === "generated") {
+      setBannerGenerated(true);
+    }
+    else if (bannerType === 'err') {
       setBannerErr(true);
+      setBannerGenerated(false);
       setBannerNormal(false);
-    } else {
+    }
+    else {
       setBannerNormal(true);
     }
   }, [bannerType])
@@ -33,7 +41,11 @@ function App() {
     })
       .then((res) => {
         setcolors(res.data.result);
-        console.log(res.data.result);
+        setBannerNormal(false);
+        setBannerType('generated');
+        setTimeout(() => {
+          setBannerType('banner');
+        }, 1500);
       })
       .catch((err) => {
         console.log(err);
@@ -78,12 +90,17 @@ function App() {
           <>
             {bannerSuccess &&
               <div className="help success">
-                <p>Successfully copied Color code to clipboard!</p>
+                <p>Successfully copied color code to clipboard!!</p>
               </div>
             }
             {bannerErr &&
               <div className="help err">
-                <p>Failed to copy color code!</p>
+                <p>Failed to copy color code!!</p>
+              </div>
+            }
+            {bannerGenerated &&
+              <div className="help gen">
+                <p>New color palette generated!!</p>
               </div>
             }
           </>

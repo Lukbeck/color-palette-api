@@ -71,6 +71,14 @@
   }
 }
 
+.gen {
+  background-color: #3b82f6;
+
+  & p {
+    color: var(--white);
+  }
+}
+
 @media (max-width: 700px) {
   .app {
     background-color: var(--bg);
