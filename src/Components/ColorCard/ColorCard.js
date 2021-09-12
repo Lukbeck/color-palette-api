@@ -37,4 +37,4 @@ function ColorCard(props) {
     )
 }
 
-export default ColorCard
+export default ColorCard;

@@ -33,8 +33,7 @@ function Palette(props) {
             <div className="color__code"></div>
           </div>
         </>
-      )
-      }
+      )}
     </div >
   );
 }
