@@ -8,7 +8,7 @@ function ColorCard(props) {
     const [hoverState, setHoverState] = useState(false);
 
     return (
-        <div className="color__card" key={props.value}
+        <div className="color__card"
             onClick={() => {
                 clipboard.writeText(`rgb(${props.value})`).then(
                     () => { setBannerType('succ'); },

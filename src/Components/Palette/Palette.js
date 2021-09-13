@@ -7,7 +7,7 @@ function Palette(props) {
       {props.value ? (
         <>
           {props.value.map((color) => (
-            <ColorCard value={color} />
+            <ColorCard value={color} key={color} />
           ))}
         </>
       ) : (

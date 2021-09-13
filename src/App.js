@@ -63,7 +63,6 @@ function App() {
     })
       .then((res) => {
         setcolors(res.data.result);
-        console.log(res.data.result);
       })
       .catch((err) => {
         console.log(err);
@@ -73,40 +72,44 @@ function App() {
   return (
     <div className="app">
       <BannerContext.Provider value={[setBannerType]}>
-        <div className="header">
-          <h2>Color Palette Generator</h2>
-        </div>
-        {colors ? <Palette value={colors} /> : <Palette />}
-        <div className="action">
-          <button onClick={randomPalette}>Generate Palette</button>
-          <p>Or just press the "Spacebar" to Generate palette.</p>
-        </div>
-        {bannerNormal ? (
-          <div className="help">
-            <p> Click to copy individual color</p>
-            <p className="key">&nbsp; •&nbsp; </p>
-            <p className="key">Press "C" to copy palettes</p>
+        <div className="home">
+          <div className="header">
+            <h2>Color Palette Generator</h2>
           </div>
-        ) : (
-          <>
-            {bannerSuccess &&
-              <div className="help success">
-                <p>Successfully copied color code to clipboard!!</p>
-              </div>
-            }
-            {bannerErr &&
-              <div className="help err">
-                <p>Failed to copy color code!!</p>
-              </div>
-            }
-            {bannerGenerated &&
-              <div className="help gen">
-                <p>New color palette generated!!</p>
-              </div>
-            }
-          </>
-        )}
-
+          {colors ? <Palette value={colors} /> : <Palette />}
+          <div className="action">
+            <button onClick={randomPalette}>Generate Palette</button>
+            <p>Or just press the "Spacebar" to Generate palette.</p>
+          </div>
+          {bannerNormal ? (
+            <div className="help">
+              <p> Click to copy individual color</p>
+              <p className="key">&nbsp; •&nbsp; </p>
+              <p className="key">Press "C" to copy palettes</p>
+            </div>
+          ) : (
+            <>
+              {bannerSuccess &&
+                <div className="help success">
+                  <p>Successfully copied color code to clipboard!!</p>
+                </div>
+              }
+              {bannerErr &&
+                <div className="help err">
+                  <p>Failed to copy color code!!</p>
+                </div>
+              }
+              {bannerGenerated &&
+                <div className="help gen">
+                  <p>New color palette generated!!</p>
+                </div>
+              }
+            </>
+          )}
+        </div>
+        <div className="profile">
+          <h1>Alwin Sunil</h1>
+        </div>
       </BannerContext.Provider>
     </div>
   );

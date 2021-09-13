@@ -1,13 +1,29 @@
 .app {
   background-color: var(--bg);
-  display: grid;
+  display: flex;
+  flex-direction: row;
   place-items: center;
   width: 100vw;
   height: 100vh;
 }
 
-.header {
-  margin-top: auto;
+.home {
+  background-color: var(--bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.profile {
+  background-color: var(--white);
+  width: 25%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
 }
 
 .action {
@@ -44,7 +60,6 @@
   background-color: var(--white);
   padding: 0.2rem 1.5rem;
   border-radius: 2rem;
-  margin-bottom: auto;
 
   & p {
     font-size: 0.9rem;
