@@ -46,7 +46,7 @@
 }
 
 .infotoggle {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   margin: 0.5rem;
@@ -168,6 +168,10 @@
     height: auto;
   }
 
+  .home {
+    height: auto;
+  }
+
   .header {
     margin: 4rem 1rem 3rem 1rem;
 
@@ -208,6 +212,20 @@
     & p {
       font-size: 0.9rem;
     }
+  }
+
+  .profile {
+    position: fixed;
+    border-radius: 0.5rem;
+    height: 85%;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    margin: 5vw;
+    width: 90vw;
+    left: 0;
+    right: 0;
   }
 
   .key {
