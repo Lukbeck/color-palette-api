@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+import { ReactComponent as InfoIcon } from "./aseets/icons/info.svg";
 import { BannerContext } from "./Context/BannerContext";
 import Palette from "./Components/Palette/Palette";
+import axios from "axios";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import "./App.scss";
 
 function App() {
@@ -11,6 +14,9 @@ function App() {
   const [bannerGenerated, setBannerGenerated] = useState(false)
   const [bannerSuccess, setBannerSuccess] = useState(false);
   const [bannerErr, setBannerErr] = useState(false);
+  const [credits, setCredits] = useState(false);
+
+  AOS.init()
 
   useEffect(() => {
     if (bannerType === 'succ') {
@@ -106,10 +112,20 @@ function App() {
               }
             </>
           )}
+          <div className="infotoggle" onClick={() => setCredits(!credits)}>
+            <div className="infotoggle__btn"><InfoIcon /></div>
+          </div>
         </div>
-        <div className="profile">
-          <h1>Alwin Sunil</h1>
-        </div>
+        {credits ? (
+          <div className="profile" data-aos="fade-left">
+            <div className="credits__main">
+              <p>developed by</p>
+              <a href="https://alwinsunil.tk" target="_blank" rel="noopener noreferrer">Alwin Sunil</a>
+              <p>built with <span>React JS</span></p>
+            </div>
+            <p className="credits">API used <a href="http://colormind.io/" target="_blank" rel="noopener noreferrer">Colormind</a></p>
+          </div>
+        ) : null}
       </BannerContext.Provider>
     </div>
   );
